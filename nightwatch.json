@@ -1,0 +1,39 @@
+{
+    "src_folders": ["tests/supportAdmin.spec.js"],
+    "output_folder": "./output/reports",
+    "custom_commands_path": ["./node_modules/nightwatch-xhr/es5/commands"],
+    "custom_assertions_path": ["./node_modules/nightwatch-xhr/es5/assertions"],    
+    "page_objects_path": [
+        "./pages"
+    ],
+    "globals_path": "./environment.js",
+    "live_output": true,
+    "parallel_process_delay": 10,
+    "disable_colors": false,
+    "test_workers": false,
+    "test_runner": {
+        "type": "mocha"
+    },
+	"webdriver" : {
+		"start_process": true,
+		"server_path": "node_modules/.bin/chromedriver",
+		"port": 9515
+	},
+
+     "test_settings":
+        {
+            "default":
+            {
+                "desiredCapabilities": {
+                    "browserName": "chrome"
+                }    
+            },
+            "chrome":
+            {
+                "desiredCapabilities":
+                {
+                    "browserName": "chrome"
+                }
+            }
+    }
+}

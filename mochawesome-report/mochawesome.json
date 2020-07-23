@@ -1,0 +1,97 @@
+{
+  "stats": {
+    "suites": 1,
+    "tests": 1,
+    "passes": 0,
+    "pending": 0,
+    "failures": 1,
+    "start": "2020-07-21T19:14:42.541Z",
+    "end": "2020-07-21T19:14:42.604Z",
+    "duration": 63,
+    "testsRegistered": 1,
+    "passPercent": 0,
+    "pendingPercent": 0,
+    "other": 0,
+    "hasOther": false,
+    "skipped": 0,
+    "hasSkipped": false,
+    "passPercentClass": "danger",
+    "pendingPercentClass": "danger"
+  },
+  "suites": {
+    "uuid": "c469ab75-6fdd-4468-90dd-55324fdce4b0",
+    "title": "",
+    "fullFile": "",
+    "file": "",
+    "beforeHooks": [],
+    "afterHooks": [],
+    "tests": [],
+    "suites": [
+      {
+        "uuid": "66f1cb91-d0b8-4101-b6be-fb6a7f454ca5",
+        "title": "Cambridge One APP",
+        "fullFile": "E:\\work\\SupportAdmin_Final\\tests\\supportAdmin.spec",
+        "file": "\\tests\\supportAdmin.spec",
+        "beforeHooks": [
+          {
+            "title": "\"before all\" hook",
+            "fullTitle": "Cambridge One APP \"before all\" hook",
+            "timedOut": false,
+            "duration": 4,
+            "pass": false,
+            "fail": false,
+            "pending": false,
+            "code": "done();",
+            "err": {},
+            "isRoot": false,
+            "uuid": "b9b4daad-62bc-43fc-85f5-9153a8f0bc90",
+            "isHook": true,
+            "skipped": false
+          }
+        ],
+        "afterHooks": [],
+        "tests": [
+          {
+            "title": "Support-Admin Login and access dashboard",
+            "fullTitle": "Cambridge One APP Support-Admin Login and access dashboard",
+            "timedOut": false,
+            "duration": 5,
+            "state": "failed",
+            "pass": false,
+            "fail": true,
+            "pending": false,
+            "code": "browser.url('https://www.cambridgeone.org?p=@cambridge.org&t=saml');\n        browser.pause(10000);\n        browser.window_handles(function(result) {\n        browser.switchWindow(result.value[1]);   \n        nemoSupportAdminDashboardPageObj = browser.page.nemoSupportAdminDashboard();\n        //Wait for okta login\n        nemoSupportAdminDashboardPageObj.waitForOktalogin();\n        });\n        browser\n            .url('https://www.cambridgeone.org/support-admin/dashboard?q=nrstudent01@cup.org&group=user')\n            .waitforXHR('',30000,function browserTrigger() {}, function assertValues(xhrs) {\n                    console.log(xhrs);\n                    console.log(xhrs.length);\n            });",
+            "err": {
+              "message": "TypeError: browser.url(...).waitforXHR is not a function",
+              "estack": "TypeError: browser.url(...).waitforXHR is not a function\n    at Context.<anonymous> (tests\\supportAdmin.spec.js:21:14)\n    at Test.Runnable.run (C:\\Users\\abc\\AppData\\Roaming\\npm\\node_modules\\nightwatch\\node_modules\\mocha-nightwatch\\lib\\overrides\\runnable.js:102:13)\n    at Runner.runTest (C:\\Users\\abc\\AppData\\Roaming\\npm\\node_modules\\nightwatch\\node_modules\\mocha-nightwatch\\lib\\runner.js:444:10)\n    at C:\\Users\\abc\\AppData\\Roaming\\npm\\node_modules\\nightwatch\\node_modules\\mocha-nightwatch\\lib\\runner.js:550:12\n    at next (C:\\Users\\abc\\AppData\\Roaming\\npm\\node_modules\\nightwatch\\node_modules\\mocha-nightwatch\\lib\\runner.js:361:14)\n    at C:\\Users\\abc\\AppData\\Roaming\\npm\\node_modules\\nightwatch\\node_modules\\mocha-nightwatch\\lib\\runner.js:371:7\n    at next (C:\\Users\\abc\\AppData\\Roaming\\npm\\node_modules\\nightwatch\\node_modules\\mocha-nightwatch\\lib\\runner.js:295:14)\n    at Immediate._onImmediate (C:\\Users\\abc\\AppData\\Roaming\\npm\\node_modules\\nightwatch\\node_modules\\mocha-nightwatch\\lib\\runner.js:339:5)\n    at processImmediate (internal/timers.js:439:21)"
+            },
+            "isRoot": false,
+            "uuid": "45068b49-fdfb-4ed0-ad74-20eaeee7076a",
+            "isHook": false,
+            "skipped": false
+          }
+        ],
+        "suites": [],
+        "passes": [],
+        "failures": [
+          "45068b49-fdfb-4ed0-ad74-20eaeee7076a"
+        ],
+        "pending": [],
+        "skipped": [],
+        "duration": 5,
+        "root": false,
+        "rootEmpty": false,
+        "_timeout": 20000
+      }
+    ],
+    "passes": [],
+    "failures": [],
+    "pending": [],
+    "skipped": [],
+    "duration": 0,
+    "root": true,
+    "rootEmpty": true,
+    "_timeout": 20000
+  },
+  "copyrightYear": 2020
+}
