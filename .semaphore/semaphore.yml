@@ -17,7 +17,13 @@ blocks:
             - cache store
             - npm run build --if-present
             - 'echo ${env}'
-            - npm test
-      env_vars: []
-      secrets:
-        - name: promoteAdmin
+            - 'node ./tests/test.js --env=${env} --email=${email} --runType=${runType} --schoolName=${schoolName}'
+      env_vars:
+        - name: env
+          value: prod
+        - name: email
+          value: ana_line_garcia@cnuevocontinentem.edu.mx
+        - name: runType
+          value: promoteToAdmin
+        - name: schoolName
+          value: Nuevo Continente Metepec
