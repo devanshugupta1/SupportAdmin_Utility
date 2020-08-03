@@ -16,7 +16,7 @@ blocks:
             - npm install
             - cache store
             - npm run build --if-present
-            - echo $env
+            - 'echo ${env}'
             - npm test
       env_vars: []
       secrets:
