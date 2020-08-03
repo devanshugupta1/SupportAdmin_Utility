@@ -9,7 +9,7 @@
     "license": "ISC",
     "main": "index.js",
     "scripts": {
-        "test": "node ./tests/test.js --env=prod --email=ana_line_garcia@cnuevocontinentem.edu.mx --runType=promoteToAdmin --schoolName=\"Nuevo Continente Metepec\""
+        "test": "node ./tests/test.js"
     },
     "version": "1.0.0"
 }
