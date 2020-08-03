@@ -1,21 +1,15 @@
 {
     "author": "Support Admin",
     "dependencies": {
-        "argv": "0.0.2",
-        "chromedriver": "^84.0.0",
-        "json-file": "^0.1.0",
-        "mocha": "^3.5.0",
-        "mochawesome": "^3.0.2",
-        "nightwatch-xhr": "^0.4.7",
-        "selenium-server": "3.4.0",
+        "fs": "0.0.1-security",
+        "puppeteer": "^5.2.1",
         "yargs": "^11.0.0"
     },
     "description": "Support Admin",
     "license": "ISC",
     "main": "index.js",
-    "name": "Leonardo-Automation",
     "scripts": {
-        "test": "nightwatch -c ./nightwatch.json -e chrome --email=nrstudent01@cup.org"
+        "test": "node ./tests/test.js --env=prod --email=ana_line_garcia@cnuevocontinentem.edu.mx --runType=promoteToAdmin --schoolName=\"Nuevo Continente Metepec\""
     },
     "version": "1.0.0"
 }

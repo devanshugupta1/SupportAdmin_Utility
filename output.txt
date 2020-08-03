@@ -1,0 +1,26 @@
+The user has already joined the school as a teacher.
+{
+  dls_org_id: 'tps-saudiarabia-prod1',
+  dls_teacher_id: '374eaf83-d0d0-11ea-a22c-0242ac110003',
+  ext_user_id: 'df0953dbdc634f71909571b0a1f5e40c'
+}
+The user is a teacher but has not joined in the school.
+{
+  users: [
+    {
+      ext_email: 'a.wilkinson@tps.edu.sa',
+      ext_first_name: 'Audrey',
+      ext_last_name: 'Wilkinson',
+      ext_user_id: '1a5370fb5b9c40b784543801f35f4214',
+      ext_role: 'admin',
+      space_title: 'TPS - Tarbiyah Private School'
+    }
+  ],
+  orgid: 'tps-saudiarabia-prod1'
+}
+The user has already joined the school as a teacher.
+{
+  dls_org_id: 'nuevo-continente-prod1',
+  dls_teacher_id: '6c28d945-d0f6-11ea-a22c-0242ac110003',
+  ext_user_id: 'ffccdcf48a3542b6b4f8fb9454d89c43'
+}
