@@ -16,10 +16,8 @@ blocks:
             - npm install
             - cache store
             - npm run build --if-present
-            - 'echo ${envv}'
+            - 'echo ${env}'
             - npm test
-      env_vars:
-        - name: envv
-          value: prod
+      env_vars: []
       secrets:
         - name: promoteAdmin
