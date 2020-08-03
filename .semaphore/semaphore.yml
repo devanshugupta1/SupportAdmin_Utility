@@ -18,5 +18,5 @@ blocks:
             - npm run build --if-present
             - npm test
       env_vars:
-        - name: argv.env
+        - name: env
           value: prod
