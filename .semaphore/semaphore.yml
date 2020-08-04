@@ -7,25 +7,15 @@ agent:
 blocks:
   - name: Test
     task:
-    	secrets:
-      	- name: promoteAdmin
-     	jobs:
-       	- name: Test
-       	  commands:
-       	    - checkout
+      jobs:
+        - name: Test
+          commands:
+            - checkout
             - sem-version node 12
             - cache restore
             - npm install
             - cache store
             - npm run build --if-present
             - echo "$ENV"
-            - 'node ./tests/test.js --env=$env --email=${email} --runType=${runType} --schoolName=${schoolName}'
-      env_vars:
-        - name: email
-          value: ana_line_garcia@cnuevocontinentem.edu.mx
-        - name: runType
-          value: promoteToAdmin
-        - name: schoolName
-          value: Nuevo Continente Metepec
       secrets:
-        - name: 
+        - name: promoteAdmin
