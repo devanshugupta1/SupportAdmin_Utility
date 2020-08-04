@@ -20,6 +20,6 @@ blocks:
             - echo "$EMAIL"
             - echo "$RUNTYPE"
             - echo "$schoolName"
-            - '''node ./tests/test.js --env="$ENV" --email="$EMAIL" --runType="$RUNTYPE" --schoolName="$schoolName"'''
+            - node ./tests/test.js --env="$ENV" --email="$EMAIL" --runType="$RUNTYPE" --schoolName="$schoolName"
       secrets:
         - name: promoteAdmin
