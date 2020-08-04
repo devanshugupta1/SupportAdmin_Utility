@@ -16,7 +16,7 @@ blocks:
             - npm install
             - cache store
             - npm run build --if-present
-            - echo env
+            - 'echo "${env}"'
             - 'node ./tests/test.js --env=$env --email=${email} --runType=${runType} --schoolName=${schoolName}'
       env_vars:
         - name: email
