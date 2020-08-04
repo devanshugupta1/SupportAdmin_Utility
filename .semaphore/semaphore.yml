@@ -19,11 +19,11 @@ blocks:
             - 'echo ${env}'
             - 'node ./tests/test.js --env=${env} --email=${email} --runType=${runType} --schoolName=${schoolName}'
       env_vars:
-        - name: env
-          value: prod
         - name: email
           value: ana_line_garcia@cnuevocontinentem.edu.mx
         - name: runType
           value: promoteToAdmin
         - name: schoolName
           value: Nuevo Continente Metepec
+      secrets:
+        - name: promoteAdmin
