@@ -7,11 +7,12 @@ agent:
 blocks:
   - name: Test
     task:
-      '-name': promoteAdmin
-      jobs:
-        - name: Test
-          commands:
-            - checkout
+    	secrets:
+      	- name: promoteAdmin
+     	jobs:
+       	- name: Test
+       	  commands:
+       	    - checkout
             - sem-version node 12
             - cache restore
             - npm install
@@ -26,3 +27,5 @@ blocks:
           value: promoteToAdmin
         - name: schoolName
           value: Nuevo Continente Metepec
+      secrets:
+        - name: 
