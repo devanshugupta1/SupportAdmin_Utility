@@ -5,8 +5,6 @@ const path = require('path');
 
 module.exports = async function(msg) {
 
-  const env = JSON.parse(fs.readFileSync('./env.json'));
-
   var transport = nodemailer.createTransport({
       service: "gmail",
       port: 2525,
@@ -20,7 +18,7 @@ module.exports = async function(msg) {
     from: '"Support Admin" <from@example.com>',
     to: 'devanshu.gupta@comprotechnologies.com, ',
     subject: 'PromoteAdmin Run Results',
-    html: 'Support Admin ran successfully for Promote Admin functionality at ' + new Date() + '. ' + '<br> ' +'Please find the below results:<br> ' + '<br> ' + JSON.stringify(msg.message)  + '<br> ' + '<br> ' + JSON.stringify(msg.requiredInfo) + '<br> ' + '<br> ' + 'Regards,' +  '<br> ' +  'Support Admin',
+    html: 'Support Admin ran successfully for Promote Admin functionality at ' + new Date() + ' . Please find the below results:<br> ' + '<br> ' + JSON.stringify(msg.message)  + '<br> ' + '<br> ' + JSON.stringify(msg.requiredInfo) + '<br> ' + '<br> ' + 'Regards,' +  '<br> ' +  'Support Admin',
     attachments: [
       {
         filename:'result.png',
