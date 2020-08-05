@@ -8,7 +8,6 @@ const fs = require('fs');
 (async () => {
 
     const env = JSON.parse(fs.readFileSync('./env.json'))[argv.env];
-    console.log(process.env.CAMBRIDGE_UNAME);
     const browser = await puppeteer.launch({ headless: false, defaultViewport: null, args: ['--start-maximized']});
 
     const page = await browser.newPage();
@@ -16,7 +15,7 @@ const fs = require('fs');
     const newPagePromise = new Promise(x => page.once('popup', x));
     const popup = await newPagePromise;
     
-    await login(popup, env)
+    await login(popup)
     await page.waitForSelector(supportAdminDashboardPage.elements.search.selector);
     await eval(argv.runType)(browser, page, env);
 

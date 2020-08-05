@@ -1,7 +1,9 @@
 const supportAdminDashboardPage = require('../pages/nemoSupportAdminDashboard.js');
+const notify = require('./notify');
 const {argv} = require('yargs');
 
 module.exports = async function(browser, page, env){
+    let result;
     //currently hard-coding for only one school result.
 
     //steps:
@@ -41,12 +43,14 @@ module.exports = async function(browser, page, env){
                 console.log("The user has already joined the school as a teacher.");
                 //req info: dls_org_id, dls_teacher_id, ext_user_id
 
-                let requiredInfo = {
-                    "dls_org_id": orgID,
-                    "dls_teacher_id" : userJSON.entities[arrayOrgs.indexOf(orgID)].dls_teacher_id,
-                    "ext_user_id": userJSON.userDetails.uid
+                result = {
+                    message:"The user has already joined the school as a teacher.",
+                    requiredInfo: {
+                        "dls_org_id": orgID,
+                        "dls_teacher_id" : userJSON.entities[arrayOrgs.indexOf(orgID)].dls_teacher_id,
+                        "ext_user_id": userJSON.userDetails.uid
+                    }
                 }
-                console.log(requiredInfo);
             }
             else {
                 console.log("The user is a teacher but has not joined in the school.");
@@ -59,26 +63,34 @@ module.exports = async function(browser, page, env){
                 const [lastNameElement] = await page.$x(supportAdminDashboardPage.elements.lastName.selector);
                 const lastName = await page.evaluate(element => element.textContent, lastNameElement);
                 
-                let requiredInfo = {
+                result = {
 
-                    "users" : [
-                        {
-                            "ext_email": argv.email,
-                            "ext_first_name": firstName,
-                            "ext_last_name": lastName,
-                            "ext_user_id":userJSON.userDetails.uid,
-                            "ext_role": "admin",
-                            "space_title": argv.schoolName
-                        }
-                    ],
-                    "orgid": orgID
+                    message:"The user is a teacher but has not joined in the school.",
+
+                    requiredInfo: {
+
+                        "users" : [
+                            {
+                                "ext_email": argv.email,
+                                "ext_first_name": firstName,
+                                "ext_last_name": lastName,
+                                "ext_user_id":userJSON.userDetails.uid,
+                                "ext_role": "admin",
+                                "space_title": argv.schoolName
+                            }
+                        ],
+                        "orgid": orgID
+                    }
                 }
-                console.log(requiredInfo);
-            }
-        }
-    });
 
-    await page.waitFor(2000);
+            }
+            console.log(result);
+            notify(result);
+
+        }
+    }, {timeout: 6000});
+
+    await page.waitFor(5000);
     await browser.close();
 
 };
