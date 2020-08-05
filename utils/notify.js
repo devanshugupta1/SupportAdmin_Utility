@@ -28,6 +28,7 @@ module.exports = async function(msg) {
     ]
 };
   transport.sendMail(mailOptions, (error, info) => {
+    console.log("inside send mail");
       if (error) {
           return console.log(error);
       }
