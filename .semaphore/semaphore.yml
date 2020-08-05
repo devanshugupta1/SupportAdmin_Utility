@@ -20,6 +20,4 @@ blocks:
       secrets:
         - name: promoteAdmin
         - name: login and email credentials
-      env_vars:
-        - name: MODE
-          value: Semaphore
+      env_vars: []
