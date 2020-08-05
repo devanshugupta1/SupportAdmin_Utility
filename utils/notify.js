@@ -16,7 +16,11 @@ module.exports = async function(msg) {
       }
     });
 
-    let modeInfo = process.env.MODE ? 'Running from Semaphore! <br>' : '';
+    let modeInfo = '';
+
+    if(process.env.MODE == 'Semaphore') {
+      modeInfo = 'Test ran on Semaphore! </br> </br>'
+    }
 
     var mailOptions = {
     from: '"Support Admin" <from@example.com>',
