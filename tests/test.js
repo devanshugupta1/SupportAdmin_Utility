@@ -8,7 +8,7 @@ const fs = require('fs');
 (async () => {
 
     const env = JSON.parse(fs.readFileSync('./env.json'))[argv.env];
-
+    console.log(process.env.CAMBRIDGE_UNAME);
     const browser = await puppeteer.launch({ headless: false, defaultViewport: null, args: ['--start-maximized']});
 
     const page = await browser.newPage();
