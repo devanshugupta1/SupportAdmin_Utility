@@ -19,13 +19,7 @@ module.exports = async function(msg) {
     to: 'devanshu.gupta@comprotechnologies.com, ',
     subject: 'PromoteAdmin Run Results',
     html: 'Support Admin ran successfully for Promote Admin functionality at ' + new Date() + ' . Please find the below results:<br> ' + '<br> ' + JSON.stringify(msg.message)  + '<br> ' + '<br> ' + JSON.stringify(msg.requiredInfo) + '<br> ' + '<br> ' + 'Regards,' +  '<br> ' +  'Support Admin',
-    attachments: [
-      {
-        filename:'result.png',
-        path: path.dirname(require.main.path) + '/promoteAdmin.png',
-        cid: 'promoteAdmin.png'
-      }
-    ]
+
 };
   transport.sendMail(mailOptions, (error, info) => {
     console.log("inside send mail");
