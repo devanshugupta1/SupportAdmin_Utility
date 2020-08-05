@@ -11,8 +11,8 @@ module.exports = async function(msg) {
       service: "gmail",
       port: 2525,
       auth: {
-        user: env.emailCredentials.username, 
-        pass: env.emailCredentials.password
+        user: process.env.SENDER_EMAIL_ID, 
+        pass: process.env.SENDER_EMAIL_PASSWORD
       }
     });
 
