@@ -16,16 +16,10 @@ blocks:
             - npm install
             - cache store
             - npm run build --if-present
-            - echo "$ENV"
-            - echo "$EMAIL"
-            - echo "$RUNTYPE"
-            - echo "$schoolName"
-            - echo "$CAMBRIDGE_UNAME"
-            - echo "$CAMBRIDGE_PASSWORD"
-            - echo "$CAMBRIDGE_SECURITY_ANSWER"
-            - echo "$SENDER_EMAIL_ID"
-            - echo "$SENDER_EMAIL_PASSWORD"
             - node ./tests/test.js --env="$ENV" --email="$EMAIL" --runType="$RUNTYPE" --schoolName="$schoolName"
       secrets:
         - name: promoteAdmin
         - name: login and email credentials
+      env_vars:
+        - name: MODE
+          value: Semaphore
