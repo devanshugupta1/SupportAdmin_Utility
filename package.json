@@ -4,13 +4,14 @@
         "fs": "0.0.1-security",
         "puppeteer": "^5.2.1",
         "yargs": "^11.0.0",
-		"nodemailer": "^6.4.11"
+        "nodemailer": "^6.4.11",
+        "path": "^0.12.7"
     },
     "description": "Support Admin",
     "license": "ISC",
     "main": "index.js",
     "scripts": {
-        "test": "node ./tests/test.js"
+        "test": "node ./tests/test.js --env=qa --email=cupqateacher1@yopmail.com --runType=promoteToAdmin --schoolName=\"Aberystwyth College\""
     },
     "version": "1.0.0"
 }

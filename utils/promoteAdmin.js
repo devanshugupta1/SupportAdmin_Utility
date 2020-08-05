@@ -30,6 +30,7 @@ module.exports = async function(browser, page, env){
     await page.waitForSelector(supportAdminDashboardPage.elements.search.selector);
     await page.goto(env.supportAdminDashboardURL + '?q=' + argv.email + '&group=user');
     await page.waitForSelector(supportAdminDashboardPage.elements.action_dropdown.selector);
+	await page.screenshot({path:'promoteAdmin.png'});
     await page.click(supportAdminDashboardPage.elements.action_dropdown.selector);
     await page.click(supportAdminDashboardPage.elements.viewDetails_option.selector);
 
@@ -86,7 +87,7 @@ module.exports = async function(browser, page, env){
             }
             console.log(result);
             notify(result);
-
+            console.log(new Date());
         }
     }, {timeout: 6000});
 
