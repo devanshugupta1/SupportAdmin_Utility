@@ -16,17 +16,11 @@ module.exports = async function(msg) {
       }
     });
 
-    let modeInfo = '';
-
-    if(process.env.MODE == 'Semaphore') {
-      modeInfo = 'Test ran on Semaphore! </br> </br>'
-    }
-
     var mailOptions = {
     from: '"Support Admin" <from@example.com>',
     to: 'devanshu.gupta@comprotechnologies.com, ',
     subject: 'PromoteAdmin Run Results',
-    html: modeInfo + 'Support Admin ran successfully for Promote Admin functionality at ' + new Date() + '. ' + '<br> ' +'Please find the below results:<br> ' + '<br> ' + JSON.stringify(msg.message)  + '<br> ' + '<br> ' + JSON.stringify(msg.requiredInfo) + '<br> ' + '<br> ' + 'Regards,' +  '<br> ' +  'Support Admin',
+    html: 'Support Admin ran successfully for Promote Admin functionality at ' + new Date() + '. ' + '<br> ' +'Please find the below results:<br> ' + '<br> ' + JSON.stringify(msg.message)  + '<br> ' + '<br> ' + JSON.stringify(msg.requiredInfo) + '<br> ' + '<br> ' + 'Regards,' +  '<br> ' +  'Support Admin',
     attachments: [
       {
         filename:'result.png',
@@ -35,7 +29,6 @@ module.exports = async function(msg) {
       }
     ]
 };
-console.log(new Date());
   transport.sendMail(mailOptions, (error, info) => {
       if (error) {
           return console.log(error);

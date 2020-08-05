@@ -87,7 +87,6 @@ module.exports = async function(browser, page, env){
             }
             console.log(result);
             notify(result);
-            console.log(new Date());
         }
     }, {timeout: 6000});
 
